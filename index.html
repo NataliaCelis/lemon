@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Months</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Dancing+Script:wght@600&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="star-container"></div>
+    
+    <header class="fade-in">
+        <div class="floating-astro">🚀</div>
+        <h1>To Lemon</h1>
+    </header>
+
+    <section class="letter-section fade-in">
+        <div class="glass-card">
+            <h2>A Note for You</h2>
+            <p class="letter-text">
+                [INSERT LATER :D]
+            </p>
+            <p class="signature">- Brenna</p>
+        </div>
+    </section>
+
+    <section class="gallery-section fade-in">
+        <h2>Us <3</h2>
+        <div class="photo-grid">
+            <div class="photo-card"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500" alt="Space"></div>
+            <div class="photo-card"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500" alt="Space"></div>
+            <div class="photo-card"><img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=500" alt="Space"></div>
+        </div>
+    </section>
+
+    <section class="rsvp-section fade-in">
+        <div class="rsvp-card">
+            <span class="top-secret">TOP SECRET DATE</span>
+            <h3>Your presence is required.</h3>
+            <p>📅 <strong>March 31st @ 6:30 PM</strong></p>
+            <p>👔 <strong>Attire:</strong> TBD</p>
+            <div class="button-group">
+                <button id="yesBtn" class="btn yes">I'll be there!</button>
+                <button id="noBtn" class="btn no">I can't make it :(</button>
+            </div>
+            <p id="noResponse" class="hidden">Sad... text me to reschedule! :'(</p>
+        </div>
+    </section>
+
+    <div id="successOverlay" class="overlay hidden">
+        <div class="success-content">
+            <h1>YAY! 💖</h1>
+            <p>It's a date! Can't wait to see you, Arsh.</p>
+            <button onclick="closeOverlay()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
