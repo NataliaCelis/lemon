@@ -40,7 +40,6 @@ body {
     50% { opacity: 0.8; transform: scale(1.2); }
 }
 
-/* Floating Planets */
 .bg-planet {
     position: fixed;
     border-radius: 50%;
@@ -141,7 +140,7 @@ body {
     position: fixed;
     top: -150px;
     z-index: 1000;
-    pointer-events: none; /* So he can't click them */
+    pointer-events: none;
     animation: fall linear forwards;
     border-radius: 10px;
     border: 2px solid white;
