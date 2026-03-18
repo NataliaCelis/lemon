@@ -1,4 +1,32 @@
-/* Space Dust (Whimsy factor) */
+:root {
+    --space-black: #05070a;
+    --lemon-pink: #ffb7ce;
+    --lemon-yellow: #fff44f;
+}
+
+body {
+    margin: 0;
+    background-color: var(--space-black);
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    touch-action: manipulation;
+}
+
+/* --- WHIMSY BACKGROUNDS --- */
+.stars-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -3;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+}
+
+.star { position: absolute; background: white; border-radius: 50%; animation: twinkle var(--duration) infinite; }
+@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
 .dust-particle {
     position: fixed;
     width: 2px; height: 2px;
@@ -7,35 +35,89 @@
     z-index: -1;
     animation: twinkle-dust 3s infinite ease-in-out;
 }
-
 @keyframes twinkle-dust {
     0%, 100% { opacity: 0; transform: scale(0.5); }
     50% { opacity: 0.8; transform: scale(1.2); }
 }
 
-/* Spotify Layout */
-.spotify-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Asteroids (Random shapes) */
 .asteroid {
     position: fixed;
     background: #333;
     z-index: -2;
-    border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%; /* Irregular shape */
+    border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
     animation: drift linear infinite;
 }
-
-/* Ensure centering on phone */
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 15px;
+@keyframes drift {
+    from { transform: rotate(0deg) translate(0,0); }
+    to { transform: rotate(360deg) translate(20px, 20px); }
 }
+
+.shooting-star {
+    position: fixed;
+    width: 150px; height: 2px;
+    background: linear-gradient(90deg, white, transparent);
+    z-index: -1;
+    animation: shoot linear forwards;
+}
+@keyframes shoot {
+    0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateX(100vw) translateY(100vh) rotate(-45deg); opacity: 0; }
+}
+
+/* --- LAYOUT --- */
+.content { width: 100%; max-width: 500px; padding: 40px 15px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
+
+.glass-card { 
+    background: rgba(255,255,255,0.07); 
+    backdrop-filter: blur(10px); 
+    padding: 25px; 
+    border-radius: 30px; 
+    margin-bottom: 30px; 
+    border: 1px solid rgba(255,255,255,0.1); 
+    width: 100%; 
+    box-sizing: border-box; 
+    text-align: center;
+}
+
+.counter-box { margin-bottom: 20px; }
+.time-units span { font-size: 2.2rem; color: var(--lemon-pink); font-weight: bold; }
+
+.cursive-title { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--lemon-pink); margin: 10px 0; }
+
+.pink-text { color: var(--lemon-pink); font-size: 1.8rem; margin-bottom: 10px; }
+
+.memory-list { 
+    text-align: left; 
+    padding-left: 10px; 
+    list-style: none; 
+    line-height: 1.8;
+}
+.memory-list li::before { content: "✨ "; }
+
+.mobile-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 95vw;
+    gap: 15px;
+    padding: 20px 0;
+}
+.carousel-slide { flex: 0 0 80%; scroll-snap-align: center; }
+.carousel-slide img { width: 100%; border-radius: 20px; border: 3px solid var(--lemon-pink); }
+
+.jar-wrapper { font-size: 5rem; cursor: pointer; margin: 20px 0; transition: transform 0.2s; }
+.jar-wrapper:active { transform: scale(0.9); }
+
+.note-popup { font-size: 1.1rem; color: var(--lemon-pink); min-height: 50px; opacity: 0; transition: 0.5s; font-style: italic; }
+.note-popup.show { opacity: 1; }
+
+.spotify-container { width: 100%; margin: 20px 0; border-radius: 12px; overflow: hidden; }
+
+.btn { padding: 18px 30px; border-radius: 50px; font-weight: bold; border: none; width: 100%; margin: 10px 0; cursor: pointer; font-family: 'Fredoka', sans-serif; }
+.yes-btn { background: var(--lemon-pink); color: #000; }
+.no-btn { background: transparent; border: 2px solid white; color: white; transition: 0.2s; }
+.surprise-btn { background: var(--lemon-yellow); color: #000; }
+
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 2000; }
+.secret-tag { background: #ff4d4d; color: white; padding: 5px 12px; border-radius: 10px; font-weight: bold; display: inline-block; margin-bottom: 10px; }
